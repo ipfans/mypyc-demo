@@ -16,3 +16,10 @@ tasks:
   build:
     cmds:
       - python setup.py build_ext --inplace
+
+  compare:
+    cmds:
+      - task: clean
+      - task: default
+      - task: build
+      - task: default

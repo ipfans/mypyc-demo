@@ -9,6 +9,10 @@ A demo to show how to use mypyc to compile python code. It use:
 ## Usage
 
 ```bash
+task compare
+
+# or
+
 task clean
 task
 task build
@@ -35,3 +39,12 @@ task: [default] .venv/bin/python hello.py
 ```
 
 It's about **~20x** faster. Yeah, it's because the fibonacci sequence is a perfect candidate for compilation.
+
+## Build wheel with(out) mypyc
+
+```bash
+❯ uv build  # all generated files will be in dist/. Use CI to build the wheels for all platforms.
+
+❯ ls dist/
+uv_demo-0.1.0-cp312-cp312-macosx_14_0_arm64.whl uv_demo-0.1.0.tar.gz
+```

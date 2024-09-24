@@ -13,8 +13,8 @@ classifiers = [
 dependencies = ["mypy[mypyc]>=1.11.2"]
 
 [build-system]
-requires = ["setuptools", "wheel", "mypy", "mypyc"]
+requires = ["setuptools", "wheel", "mypy"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools]
-packages = ["uv-demo"]
+[tool.mypyc]
+files = ["fib"]
