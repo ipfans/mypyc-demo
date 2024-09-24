@@ -34,4 +34,4 @@ task: [default] .venv/bin/python hello.py
 0.5870780944824219
 ```
 
-It's about ~20x faster. Yeah, it's because the fibonacci sequence is a perfect candidate for compilation.
+It's about **~20x** faster. Yeah, it's because the fibonacci sequence is a perfect candidate for compilation.
