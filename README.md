@@ -1,0 +1,37 @@
+# uv-demo
+
+A demo to show how to use mypyc to compile python code. It use:
+
+- [mypyc](https://github.com/mypyc/mypyc) to compile the code.
+- [taskfile](https://taskfile.dev) to manage the build process.
+- [uv](https://github.com/astral-sh/uv) to manage the python version/environment.
+
+## Usage
+
+```bash
+task clean
+task
+task build
+task
+```
+
+## Output
+
+```bash
+❯ task
+task: [default] .venv/bin/python hello.py
+12.155249834060669
+
+❯ task build
+task: [build] python setup.py build_ext --inplace
+...
+copying build/lib.macosx-14.6-arm64-cpython-312/9afd01ebd377fb162afb__mypyc.cpython-312-darwin.so ->
+copying build/lib.macosx-14.6-arm64-cpython-312/fib/__init__.cpython-312-darwin.so -> fib
+copying build/lib.macosx-14.6-arm64-cpython-312/fib/fibfunc.cpython-312-darwin.so -> fib
+
+❯ task
+task: [default] .venv/bin/python hello.py
+0.5870780944824219
+```
+
+It's about ~20x faster. Yeah, it's because the fibonacci sequence is a perfect candidate for compilation.

@@ -1,0 +1,18 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - .venv/bin/python hello.py
+
+  clean:
+    cmds:
+      - rm -rf build
+      - rm -rf dist
+      - find . -path "./.venv" -prune -o -name "*.so" -delete
+
+  build:
+    cmds:
+      - python setup.py build_ext --inplace
